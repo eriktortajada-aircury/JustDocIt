@@ -1,6 +1,6 @@
 # Bucket principal para el sitio web
 resource "aws_s3_bucket" "s3" {
-  bucket        = "justdocit-images"
+  bucket        = "justdocit-s3"
   force_destroy = true # Elimina el bucket y su contenido si es destruido
 }
 
@@ -29,7 +29,7 @@ resource "aws_s3_bucket_policy" "s3_policy" {
         Effect    = "Allow"
         Action    = "s3:GetObject"
         Principal = "*"
-        Resource  = "arn:aws:s3:::justdocit-images/*" # Aplica a los objetos dentro del bucket
+        Resource  = "arn:aws:s3:::justdocit-s3/*" # Aplica a los objetos dentro del bucket
       }
     ]
   })
